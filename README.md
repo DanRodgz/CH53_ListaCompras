@@ -8,7 +8,7 @@ Se realiza un ejercicio sobre una lista de compras, no se modifica para nada el 
 
 *La siguiente imagen muestra nuestro HTML*
 
-! [Image] (img/SplashScreen.png)
+! [Image](img/SplashScreen.png)
 
 ---
 
