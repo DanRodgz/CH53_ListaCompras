@@ -5,6 +5,7 @@ const alertValidacionesTexto = document.getElementById("alertValidacionesTexto")
 const alertValidaciones = document.getElementById("alertValidaciones");
 const tablaListaCompras = document.getElementById("tablaListaCompras");
 const cuerpoTabla = tablaListaCompras.getElementsByTagName("tbody").item(0);
+const btnClear = document.getElementById("btnClear");
 
 const contadorProductos = document.getElementById("contadorProductos");
 const productosTotal = document.getElementById("productosTotal");
@@ -134,3 +135,36 @@ window.addEventListener("load", function (event) {
   productosTotal.innerText = totalEnProductos;
   contadorProductos.innerText = cont;
 }); // window.addEvenListener load (traer los datos de local storage aún habiendo cerrado la página)
+
+/* Agregar la funcionalidad del botón limpiar todo 
+1. Resumen
+2. Table
+3. Campos
+4. Alerta
+5. Local Storage */
+
+btnClear.addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    txtName.value = ""; // Limpiar nombre
+    txtNumber.value = ""; // Limpiar cantidad
+
+    // Quitar alertas
+    alertValidaciones.style.display = "none"; // Quitar el estilo asignado al recuadro de alert
+    alertValidacionesTexto.innerHTML = ""; // Quitar texto de alert
+
+    // Quitar el contenido del cuerpo de la tabla
+    cuerpoTabla.innerHTML = ""; 
+    cont = 0;
+    totalEnProductos = 0;
+    costoTotal = 0;
+    datos = [];
+
+    // Eliminar los datos de local storage por etiqueta
+    localStorage.removeItem("datos");
+    localStorage.removeItem("resumen");
+
+    contadorProductos.innerText = "0";
+    precioTotal.innerText = "0";
+    productosTotal.innerText = "0";
+})
